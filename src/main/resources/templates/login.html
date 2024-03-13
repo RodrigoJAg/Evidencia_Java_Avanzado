@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Evidencia Final 2902637</title>
+<link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+	<main class="container">
+		<section class="log">
+			<form class="login" th:action="@{logged}" method="POST" th:object="${user}">
+				<label for="username">Username</label>
+				<input type="text" id="username" th:field="*{username}" required autofocus="autofocus">
+				<label for="password">Password</label>
+				<input type="password" id="password" th:field="*{password}" required autofocus="autofocus">
+				<br>
+				<input type="submit" value="iniciar">
+				
+			</form>
+			
+			<form class="login" th:action="@{logout}" method="POST">
+				<input type="submit" value="salir">
+			</form>
+			
+		</section>
+	</main>
+
+</body>
+</html>

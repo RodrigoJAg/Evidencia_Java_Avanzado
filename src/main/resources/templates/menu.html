@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Evidencia Final 2902637</title>
+<link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+	<main class="container">
+		<section class="imc">
+			<form class="Calc" th:action="@{res}" method="POST" th:object="${IMC}">
+				
+				<h1>Calculadora de IMC</h1>
+				<p>El IMC o indice de masa corporal es un calculo matematico resultante de dividir el peso de la persona (en kg) entre su altura en metros al cuadrado. Este valor nos indicara el indice de masa corporal de la persona y nos ayudara a saber si presenta o no obesidad.</p>
+				<div>Hola <span th:text="*{username}"></span> </div>
+				<input type="hidden" name="username" th:field="*{username}" required autofocus="autofocus">
+				<p>Altura (m)</p>
+				<input type="text" name="altura" th:field="*{altura}" required autofocus="autofocus">
+				<p>Peso (Kg)</p>
+				<input type="text" name="peso" th:field="*{peso}" required autofocus="autofocus">
+				<br>
+				<input type="submit" value="Calcular">
+				<p>Resultado IMC: </p>
+				
+				<div  th:if="*{peso == null && altura == null}">Ingrese los valores</div>
+				
+				<span th:if="*{peso != null && altura != 0.5 && peso >10}" th:text="*{imc}"></span>
+				
+				<span th:if="*{peso != null && peso < 10}">Masa mayor a 10</span>
+				
+				<span th:if="*{altura == 0.5}">La altura es mayor a 2.5 o menor a 1.0</span>
+				
+				
+			</form>
+		
+			<form class="register" th:action="@{logout}" method="POST">
+				<input type="submit" value="salir">
+			</form>
+			
+		</section>		
+		
+	</main>
+
+</body>
+</html>

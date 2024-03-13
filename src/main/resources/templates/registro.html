@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Evidencia Final 2902637</title>
+<link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+	<main class="container">
+		<section class="regis">
+			<form class="register" th:action="@{registrar}" method="POST" th:object="${user}">
+			
+				<label for="fullname">Nombre Completo</label>
+				<input type="text" id="fullname" th:field="*{fullname}" required autofocus="autofocus">
+				
+				
+				<label for="age">Edad</label>
+				<input type="text" id="age" th:field="*{age}" required autofocus="autofocus">
+				
+				
+				<label for="gender">Genero</label>
+				<input type="text" id="gender" th:field="*{gender}" required autofocus="autofocus">
+				
+				<label for="username">Username</label>
+				<input type="text" id="username" th:field="*{username}" required autofocus="autofocus">
+				
+				<label for="password">Password</label>
+				<input type="password" id="password" th:field="*{password}" required autofocus="autofocus">
+				
+				<label for="confirm_password">Confirm Password</label>
+				<input type="password" id="confirm_password" th:field="*{confirm_password}" required autofocus="autofocus">
+				
+				<span th:if="*{username == null}">Usuario repetido o nulo</span>
+				<span th:if="*{age == '15'}">Valor de edad no valido  o edad menor a 15</span>
+
+				<input type="submit" value="registro">
+				
+				
+			</form>
+			
+			<form class="register" th:action="@{logout}" method="POST">
+				<input type="submit" value="salir">
+			</form>
+			
+		</section>
+	</main>
+
+</body>
+</html>
